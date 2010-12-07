@@ -5,9 +5,8 @@ class Taxonomy
   
   key :name, String
   
+  many :packages
+  
   attr_accessible :name
-  #has_and_belongs_to_many :packages
+  
 end
-
-#Taxonomy.create(:name => "foo")
-#Taxonomy.create(:name => "bar")

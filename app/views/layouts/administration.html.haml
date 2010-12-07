@@ -4,8 +4,10 @@
   %body
     #header
       .header.center= render :partial => "layouts/partials/admin/header"
+    #subheader
+      .subheader.center= render :partial => "layouts/partials/admin/subheader"
     #content
-      .content.center= yield
+      .content= yield
     #footer
       .footer.center Footer
       !!!= render :partial => 'layouts/header'

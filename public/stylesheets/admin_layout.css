@@ -34,6 +34,11 @@ div#header {
       font-family: 'Georgia';
       font-size: 50px;
       font-weight: normal; }
+      div#header div.header-controller h1 a {
+        color: inherit;
+        text-decoration: none; }
+      div#header div.header-controller h1 a:hover {
+        color: #FFFFFF; }
   div#header div.header-actions {
     float: right; }
     div#header div.header-actions ul {
@@ -41,13 +46,50 @@ div#header {
       div#header div.header-actions ul li {
         float: left; }
         div#header div.header-actions ul li a {
-          display: block; }
+          display: block;
+          padding: 15px;
+          color: #385C69; }
         div#header div.header-actions ul li a:hover {
           background: #000000;
-          color: #ffffff; }
+          color: #FFFFFF; }
+
+div#subheader {
+  float: left;
+  width: 100%;
+  background: #f9f9f9;
+  border-bottom: 1px solid #c0c0c0; }
+  div#subheader div.header-controller {
+    float: left; }
+    div#subheader div.header-controller h3 {
+      float: left;
+      color: #385C69;
+      font-family: 'Georgia';
+      font-size: 16px;
+      font-weight: normal;
+      padding: 15px; }
+  div#subheader div.header-actions {
+    float: right; }
+    div#subheader div.header-actions ul {
+      float: left; }
+      div#subheader div.header-actions ul li {
+        float: left;
+        margin-left: 15px; }
+        div#subheader div.header-actions ul li a {
+          display: block;
+          padding: 15px;
+          color: #385C69; }
+        div#subheader div.header-actions ul li a:hover {
+          background: #c0c0c0;
+          color: #000000; }
+
+.content {
+  background: #f9f9f9;
+  border: 1px solid #c0c0c0;
+  padding: 20px;
+  margin: 0 20px; }
 
 .module {
-  background: none repeat scroll 0 0 #FFFFFF;
+  background: #DEF1F8;
   border: 1px solid #CCCCCC;
   margin: 0 0 20px; }
   .module .module-header {

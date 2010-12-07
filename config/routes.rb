@@ -51,6 +51,9 @@ Shop::Application.routes.draw do
        resources :packages
        resources :packages_products
        resources :taxonomies
+       resources :users
+       resources :stores
+       resources :orders
    end
    
    resources :admin
