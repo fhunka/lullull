@@ -1,0 +1,5 @@
+<ul>
+	<% for package in @packages %>
+		<%= package.name %>
+	<% end %>
+</ul>

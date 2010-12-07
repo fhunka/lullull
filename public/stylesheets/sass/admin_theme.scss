@@ -1,0 +1,24 @@
+body{}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #222222;
+	font-family: Georgia,Helvetica,Arial,sans-serif;
+	font-weight: bold;
+}
+
+h3{
+	font-size: 17px;
+}
+
+th{
+	border-bottom:1px solid #DDDDDD;
+	font-size:15px;
+	font-weight:bold;
+}
+
+th, td{
+	line-height:1.3em;
+	padding:10px;
+	font-weight:normal;
+	text-align:left;
+}

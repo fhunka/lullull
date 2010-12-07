@@ -1,0 +1,10 @@
+<li>
+	<%= link_to package.name, admin_package_path(package) %>
+	<% if package.is_empty? %>
+		<ul>
+			<li>
+				<%= link_to "Add product to package", edit_admin_package_path(package) %>
+			</li>
+		</ul>
+	<% end %>
+</li>

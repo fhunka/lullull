@@ -1,0 +1,18 @@
+<table width="100%">
+	<thead>
+		<th>ID</th>
+		<th>SKU</th>
+		<th>Name</th>
+		<th>Image</th>
+	</thead>
+	<tbody>
+	<% for product in @products %>
+		<tr>
+			<td><%= product.id %></td>
+			<td><%= "sku" %>
+			<td><%= product.name %></td>
+			<td><%= product.images.size%></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

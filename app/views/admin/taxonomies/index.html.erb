@@ -1,0 +1,35 @@
+<table>
+	<thead>
+		<th>Kategori</th>
+		<th>
+			Name
+		</th>
+		<th>
+			Antal produkter i kategori
+		</th>
+	</thead>
+	<tbody>
+	<% for taxonomy in @taxonomies %>
+		<tr>
+			<td>
+				-
+			</td>
+			<td>
+				<%= link_to taxonomy.name, admin_taxonomy_path(taxonomy) %>
+			</td>
+			<td>
+				<%= link_to "Edit", edit_admin_taxonomy_path(taxonomy) %>
+			</td>
+		</tr>
+		<tr>
+			<td>Taxonomy_1</td>
+			<td>
+				Another one
+			</td>
+			<td>
+				<%= link_to "Edit", "#" %>
+			</td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

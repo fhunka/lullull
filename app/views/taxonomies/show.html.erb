@@ -1,0 +1,10 @@
+<ul>
+	<% for package in @packages %>
+		<%= link_to package.name, package %>
+		<ul>
+		<% for product in package.products %>
+			<li><%= link_to product.name, package %></li>
+		<% end %>
+		</ul>
+	<% end %>
+</ul>

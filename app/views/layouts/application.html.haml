@@ -1,0 +1,12 @@
+!!! Strict
+%html
+	%head
+		%meta{'http-equiv' => 'Content-Type', :content => "text/html; charset=iso-8859-1"}
+		%link{:rel=>'stylesheet', :href=>'/stylesheets/application.css', :type => "text/css"} 
+		%title Foo
+	%body
+.header#header
+!!!= render :partial => 'layouts/header'
+!!!.menu#menu= render :partial => 'layouts/menu'
+.content#content= yield
+.footer#footer

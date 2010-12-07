@@ -1,0 +1,5 @@
+<ul id="packages">
+	<% for package in @packages %>
+		<%= render :partial => "packages/package", :object => package %>
+	<% end %>
+</ul>

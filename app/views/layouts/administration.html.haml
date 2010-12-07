@@ -1,0 +1,12 @@
+!!! Strict
+%html
+  %head= render :partial => "layouts/partials/admin/head"
+  %body
+    #header
+      .header.center= render :partial => "layouts/partials/admin/header"
+    #content
+      .content.center= yield
+    #footer
+      .footer.center Footer
+      !!!= render :partial => 'layouts/header'
+!!!.menu#menu= render :partial => 'layouts/menu'

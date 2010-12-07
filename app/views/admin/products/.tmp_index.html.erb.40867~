@@ -1,0 +1,14 @@
+<table>
+	<thead>
+		<th>ID</th>
+		<th>Name</th>
+	</thead>
+	<tbody>
+	<% for product in @products %>
+		<tr>
+			<td><%= product.id %></td>
+			<td><%= product.name %></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

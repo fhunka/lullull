@@ -1,0 +1,15 @@
+<ul id="packages">
+	<%= render @package %>
+</ul>
+<div id="sidebar">
+	<ul>
+		<li>hej</li>
+	</ul>
+</div>
+<div id="column_for_<%= params[:controller].classify.downcase %>">
+	<% 3.times do |index| %>
+		<div class="module">
+			sad
+		</div>
+	<% end %>
+</div>

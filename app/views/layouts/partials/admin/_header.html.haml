@@ -1,0 +1,14 @@
+.header-controller{:style => "align:left;"}
+  %h1= params[:controller].classify
+.header-actions{:style => "align:right;"}
+  %ul
+    %li
+      %a{:href => admin_packages_path} Overview
+    %li
+      %a{:href => admin_packages_path} Orders
+    %li
+      %a{:href => admin_packages_path} Packages
+    %li
+      %a{:href => admin_products_path} Products
+    %li
+      %a{:href => admin_packages_path} Settings

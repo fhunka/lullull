@@ -1,0 +1,5 @@
+<ul>
+	<% for package in @packages %>
+		<%= render :partial => package %>
+	<% end %>
+</ul>

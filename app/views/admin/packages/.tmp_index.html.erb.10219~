@@ -1,0 +1,27 @@
+<table>
+	<thead>
+		<th>
+			Name
+		</th>
+		<th>
+			Antal produkter i paket
+		</th>
+	</thead>
+	<tbody>
+	<% for package in @packages %>
+		<%#= render :partial => package %>
+		<tr>
+			<td>
+				<%= link_to package.name, admin_package_path(package) %>
+			</td>
+			<td>
+				<% if package.products.empty? %>
+					<%= link_to "Add products", edit_admin_package_path(package) %>
+				<% else %>
+					<%= link_to package.products.size, edit_admin_package_path(package) %>
+				<% end %>
+			</td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

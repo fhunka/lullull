@@ -1,0 +1,38 @@
+<li id="package_<%=package.id%>" class="package-holder">
+    <div class="package">
+        <div class="package-boxshot">
+            <%= link_to image_tag("cover.jpg", :alt => "cover"), "#" %>
+        </div>
+        <div class="package-specification">
+            <div class="package-information">
+                <h3><%= link_to package.name, package %></h3>
+            </div>
+            <div class="package-products">
+                <ul>
+                    <% for product in package.products %>
+                    	<%= render :partial => product %>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+        <div class="package-action-holder">
+            <ul class="actions">
+                <li>
+                    <%= link_to image_tag("rating.gif"), "#" %>
+                </li>
+                <li class="action">
+                    <%= number_to_currency(54321) %>
+                </li>
+                <li class="action">
+                    More of cathegory
+                </li>
+                <li class="action">
+                    Purchase
+                </li>
+            </ul>
+        </div>
+        <div class="add_to_cart">
+            <%= link_to "Add to cart", "#" %>
+        </div>
+    </div>
+</li>

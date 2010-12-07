@@ -1,0 +1,15 @@
+<h1>Editing package</h1>
+
+<ul>
+<% for product in @package.products %>
+	<li>
+		<%= link_to product.name, admin_product_path(product) %>
+		<%#= link_to 'Destroy', admin_packages_product_path(@package, product), :confirm => 'Are you sure?', :method => :delete %>
+	</li>
+<% end %>
+</ul>
+
+<%= render "form" %>
+
+<%= link_to 'Show', admin_package_path(@package) %> |
+<%= link_to 'Back', admin_packages_path %>
