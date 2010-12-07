@@ -1,0 +1,18 @@
+.header-controller{:style => "align:left;"}
+  %h3= params[:controller].classify
+.header-actions{:style => "align:right;"}
+  %ul
+    %li
+      %a{:href => admin_index_path} Overview
+    %li
+      %a{:href => admin_orders_path} Orders
+    %li
+      %a{:href => admin_packages_path} Packages
+    %li
+      %a{:href => admin_products_path} Products
+    %li
+      %a{:href => admin_packages_path} Settings
+    %li
+      %a{:href => admin_users_path} Users
+    %li
+      %a{:href => admin_stores_path} Stores

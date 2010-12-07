@@ -1,0 +1,46 @@
+:javascript
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+
+#tabs
+  %ul
+    %li
+      %a{:href => "#tabs-1"} Users
+    %li
+      %a{:href => "#tabs-2"} Orders
+  #tabs-1    
+    .success
+      %span foo
+      %p bar
+    .data
+      %span foo
+      %p bar
+    .error
+      %span foo
+      %p bar
+    .notice
+      %span foo
+      %p bar
+    %table{:width => "100%"}
+      %thead
+        %th ID
+        %th Name
+        %th Orders
+        %th Actions
+      %tbody
+        - @packages.each do |package|
+          %tr
+            %td= package.id
+            %td= package.name
+            %td= package.products.size
+            %td
+              %ul
+                %li
+                  %a{:href => "#"} X
+                %li
+                  %a{:href => "#"} X
+                %li
+                  %a{:href => "#"} X
+  #tabs-2
+    ya
