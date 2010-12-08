@@ -9,6 +9,7 @@ gem 'formtastic'
 gem 'mongo_mapper'
 gem "haml-rails"
 gem "carrierwave"
+gem "rspec"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
