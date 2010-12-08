@@ -10,6 +10,7 @@ gem 'mongo_mapper'
 gem "haml-rails"
 gem "carrierwave"
 gem "rspec"
+gem "rspec-rails"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

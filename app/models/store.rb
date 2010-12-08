@@ -3,11 +3,11 @@ MongoMapper.database = 'testing'
 class Store
   include MongoMapper::Document
   
-  key :name, String
+  key :title, String
   
+  many :products
+  many :channels
   many :users
-  
-  belongs_to :store
   
   attr_accessible :name
   

@@ -1,6 +1,7 @@
 namespace :db do
   #describe "Seed"
   task :seed => :environment do
+    #MongoMapper.collections.each(&:remove)
     Store.all.each{|s| s.delete }
     User.all.each{|s| s.delete }
     Transaction.all.each{|s| s.delete }
