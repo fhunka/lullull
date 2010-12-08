@@ -55,7 +55,7 @@ div#header{
 			
 			li{
 				float: left;
-				a{display: block; padding: 15px; color: #385C69;}
+				a{display: block; padding: 15px; color: #385C69; text-decoration: none;}
 				a:hover{
 					background: #000000;
 					color: #FFFFFF;
@@ -69,7 +69,7 @@ div#subheader{
 	float: left;
 	width: 100%;
 	background: #f9f9f9;
-	border-bottom: 1px solid #c0c0c0;
+	border-bottom: 1px solid #CBDFE7;
 	
 	div.header-controller{
 		float: left;
@@ -94,7 +94,7 @@ div#subheader{
 				float: left;
 				margin-left: 15px;
 				
-				a{display: block; padding: 15px; color: #385C69;}
+				a{display: block; padding: 15px; color: #385C69; text-decoration: none;}
 				a:hover{
 					background: #c0c0c0;
 					color: #000000;
