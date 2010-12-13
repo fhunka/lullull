@@ -1,8 +1,0 @@
-<ul id="packages">
-	<%# for package in @packages %>
-		<%#= render :partial => package %>
-	<%# end %>
-	<% for package in @packages %>
-		<%= render package %>
-	<% end %>
-</ul>
