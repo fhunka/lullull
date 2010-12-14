@@ -9,6 +9,15 @@
 <% end %>
 </ul>
 
+<ul>
+<% for taxonomy in @package.taxonomies %>
+	<li>
+		<%= link_to taxonomy.name, admin_taxonomy_path(taxonomy) %>
+		<%#= link_to 'Destroy', admin_packages_product_path(@package, product), :confirm => 'Are you sure?', :method => :delete %>
+	</li>
+<% end %>
+</ul>
+
 <%= render "form" %>
 
 <%= link_to 'Show', admin_package_path(@package) %> |

@@ -20,8 +20,8 @@
       %span foo
       %p bar
     .notice
-      %span foo
-      %p bar
+      %span Notice
+      %p= flash[:notice]
     %table{:width => "100%"}
       %thead
         %th ID
@@ -31,9 +31,9 @@
       %tbody
         - @packages.each do |package|
           %tr
-            %td= package.id
+            %td= link_to package.id, edit_admin_package_path(package)
             %td= package.name
-            %td= package.products.size
+            %td= package
             %td
               %ul
                 %li

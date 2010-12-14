@@ -5,19 +5,24 @@ class Package
   #require 'carrierwave/orm/mongo'
   include MongoMapper::Document
   
-  #mount_uploader :attachment, AttachmentUploader
+  key :name, String, :required => true
+  key :product_ids, Array
+  key :taxonomy_ids, Array
+  timestamps!
   
-  key :name, String
-  key :attachment, String  
+  many :products, :in => :product_ids, :class_name => "Product"
+  many :taxonomies, :in => :taxonomy_ids, :class_name => "Taxonomy"
   
-  many :attachements
-  many :products
-  many :taxonomies
+  #def is_empty?
+  #  self.products.empty?
+  #end
   
-  attr_accessible :name
+  #def permalink
+  #  Package.escape_url(name)
+  #end
   
-  def is_empty?
-    self.products.empty?
-  end
+  #def to_key
+  #  self.keys.to_a
+  #end
   
 end

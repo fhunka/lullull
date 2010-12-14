@@ -6,13 +6,16 @@ class Product
   #include Relationship
   #mount_uploader :attachment, AttachmentUploader
   
+  #key :package_id, ObjectId
   key :name, String
-  key :attachment, String
+  #key :attachment, String
   
-  many :packages
+  #key :package_ids, Array
+  
+  many :packages, :class_name => "Package", :foreign_key => :package_ids
   many :images
   
-  attr_accessible :name
+  #attr_accessible :name
   
 end
 

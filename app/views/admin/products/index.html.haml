@@ -32,7 +32,7 @@
       %tbody
         - @products.each do |product|
           %tr
-            %td= product.id
+            %td= link_to product.id, admin_product_path(product)
             %td "SKU"
             %td= product.name
             %td= product.images.size

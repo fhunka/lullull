@@ -20,7 +20,6 @@ class Admin::PackagesController < ApplicationController
   # POST /clients.xml
   def create
     @package = Package.new(params[:package])
-
     respond_to do |format|
       if @package.save
         format.html { redirect_to(admin_package_path(@package), :notice => 'Package was successfully created.') }
@@ -37,9 +36,12 @@ class Admin::PackagesController < ApplicationController
   def update
     @package = Package.find(params[:id])
     
+    #@package.set(:products => params[:product_ids])
+    
+    #@package.products.update({'_id' => @package.id}, {'$push' => params[:package][:product_ids]})
     respond_to do |format|
-      if @package.update_attributes(params[:package])
-        format.html { redirect_to(edit_admin_package_path(@package), :notice => "Package was successfully updated.") }
+      if @package.update_attributes(params[:package])        
+        format.html { redirect_to(edit_admin_package_path(@package), :notice => "Package was successfully updated: #{@package.products.size}") }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
