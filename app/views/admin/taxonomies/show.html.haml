@@ -1,0 +1,5 @@
+%h3= @taxonomy.name
+%ul
+  - @taxonomy.packages.each do |package|
+    %li= link_to package.name, admin_package_path(package)
+= debug @taxonomy

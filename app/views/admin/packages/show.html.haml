@@ -1,0 +1,10 @@
+#package
+%h1= @package.name
+%h3 Products
+%ul
+  - @package.products.each do |product|
+    %li= product.name
+%h3 Taxonomies
+%ul
+  - @package.taxonomies.each do |taxonomy|
+    %li= taxonoomy.name
