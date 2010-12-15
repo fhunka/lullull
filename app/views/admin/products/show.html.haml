@@ -1,0 +1,4 @@
+%h3= @product.name
+%ul
+  - @product.packages.each do |package|
+    %li= link_to package.name, edit_admin_package_path(package)

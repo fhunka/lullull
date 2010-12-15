@@ -48,8 +48,13 @@ Shop::Application.routes.draw do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
        resources :products
-       resources :packages
-       resources :packages_products
+       resources :packages do
+         resource :product
+         resource :taxonomy
+         member do
+           post :update_products
+         end
+       end
        resources :taxonomies
        resources :users
        resources :stores

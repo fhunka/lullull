@@ -49,11 +49,33 @@ class Admin::PackagesController < ApplicationController
       end
     end
   end
+  
+  def update_products
+    @package = Package.find(params[:id])
+    
+    respond_to do |format|
+      if @package.update_attributes(params[:package])
+        
+        params[:package][:product_ids].each do |p|
+          product = Product.find(p)
+          product.package_ids << @package.id unless  product.package_ids.include?(@package.id)
+          product.save
+        end
+        
+        format.html { redirect_to(edit_admin_package_path(@package), :notice => "Package was successfully updated: #{@package.products.first.name} #{@package.products.first.package_ids.size}") }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @package.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
 
   # DELETE /clients/1
   # DELETE /clients/1.xml
   def destroy
     @package = Package.find(params[:id])
+    
     @package.destroy
 
     respond_to do |format|

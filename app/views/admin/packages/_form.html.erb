@@ -1,3 +1,12 @@
+<%= flash[:notice]%>
+<div id="update_package_products">
+<% form_for :admin, :url => {:action => "update_products", :controller => "packages", :method => "post"} do |f| %>
+	<div class="field">
+		<%= select_tag 'package[product_ids][]', options_from_collection_for_select(Product.all, "_id", "name", @package.products.collect{|t| t.id}), { :multiple => true, :size =>5 } %>
+	</div>
+	<%= submit_tag "Update" %>
+<% end %>
+</div>
 <%= form_for([:admin, @package]) do |f| %>
 <% if @package.errors.any? %>
     <div id="error_explanation">
@@ -20,7 +29,7 @@
   	<%#= pp.label :name %>
 	<%#= pp.text_field :name %>
 	<%#= select_tag 'package[product_ids][]', options_from_collection_for_select(Product.all, "id", "name", @package.products.collect{|t| t.id}), { :multiple => true, :size =>5 } %>
-	<%= select_tag 'package[product_ids][]', options_from_collection_for_select(Product.all, "_id", "name", @package.products.collect{|t| t.id}), { :multiple => true, :size =>5 } %>
+	<%#= select_tag 'package[product_ids][]', options_from_collection_for_select(Product.all, "_id", "name", @package.products.collect{|t| t.id}), { :multiple => true, :size =>5 } %>
 	<%#= pp.label :id %>
 	<%#= pp.text_field :id, :value => pp.id %>
 	

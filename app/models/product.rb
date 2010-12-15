@@ -10,9 +10,9 @@ class Product
   key :name, String
   #key :attachment, String
   
-  #key :package_ids, Array
+  key :package_ids, Array
   
-  many :packages, :class_name => "Package", :foreign_key => :package_ids
+  many :packages, :in => :package_ids,  :class_name => "Package"
   many :images
   
   #attr_accessible :name
