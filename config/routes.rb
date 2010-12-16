@@ -52,7 +52,8 @@ Shop::Application.routes.draw do
          resource :product
          resource :taxonomy
          member do
-           post :update_products
+           post :add_product
+           post :remove_product
          end
        end
        resources :taxonomies

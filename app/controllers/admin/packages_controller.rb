@@ -50,20 +50,50 @@ class Admin::PackagesController < ApplicationController
     end
   end
   
-  def update_products
+  def add_product
     @package = Package.find(params[:id])
     
+    @package.product_ids << params[:product_id]
+    
+    product = Product.find(params[:product_id])
+    product.package_ids << params[:id]
+    
     respond_to do |format|
-      if @package.update_attributes(params[:package])
-        
-        params[:package][:product_ids].each do |p|
-          product = Product.find(p)
-          product.package_ids << @package.id unless  product.package_ids.include?(@package.id)
-          product.save
+      if product.save
+        if @package.save
+          
+          format.html { redirect_to(edit_admin_package_path(@package), :notice => "Package was successfully updated!") }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @package.errors, :status => :unprocessable_entity }
         end
-        
-        format.html { redirect_to(edit_admin_package_path(@package), :notice => "Package was successfully updated: #{@package.products.first.name} #{@package.products.first.package_ids.size}") }
-        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @package.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
+  def remove_product
+    @package = Package.find(params[:id])
+    
+    @package.product_ids.delete(params[:product_id])
+    
+    product = Product.find(params[:product_id])
+    product.package_ids.delete(params[:id])
+    
+    
+    respond_to do |format|
+      if product.save
+        if @package.save
+          
+          format.html { redirect_to(edit_admin_package_path(@package), :notice => "Package was successfully updated!") }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @package.errors, :status => :unprocessable_entity }
+        end
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @package.errors, :status => :unprocessable_entity }
