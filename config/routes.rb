@@ -54,6 +54,8 @@ Shop::Application.routes.draw do
          member do
            post :add_product
            post :remove_product
+           post :add_taxonomy
+           post :remove_taxonomy
          end
        end
        resources :taxonomies

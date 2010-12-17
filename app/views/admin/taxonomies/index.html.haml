@@ -10,28 +10,18 @@
     %li
       %a{:href => "#tabs-2"} Orders
   #tabs-1    
-    .success
-      %span foo
-      %p bar
-    .data
-      %span foo
-      %p bar
-    .error
-      %span foo
-      %p bar
-    .notice
-      %span foo
-      %p bar
     %table{:width => "100%"}
       %thead
         %th ID
         %th Name
+        %th Parent
         %th Actions
       %tbody
         - @taxonomies.each do |taxonomy|
           %tr
             %td= link_to taxonomy.id, admin_taxonomy_path(taxonomy)
             %td= taxonomy.name
+            %td= taxonomy.parent.name
             %td
               %ul
                 %li

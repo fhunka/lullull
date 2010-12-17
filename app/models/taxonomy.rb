@@ -6,11 +6,16 @@ class Taxonomy
   key :name, String
   key :store_id, ObjectId
   key :package_ids, Array
+  key :taxonomy_ids, Array
+  
+  
   
   belongs_to :store
   
   attr_accessible :name
-  belongs_to :package
-  many :packages, :in => :package_ids, :class_name => "Package", :foreign_key => :taxonomy_ids
+  
+  many :packages, :in => :package_ids, :class_name => "Package"
+  many :taxonomies, :in => :taxonomy_ids, :class_name => "Taxonomy"
+  
   
 end

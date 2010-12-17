@@ -100,6 +100,57 @@ class Admin::PackagesController < ApplicationController
       end
     end
   end
+  
+  def add_taxonomy
+    @package = Package.find(params[:id])
+    
+    @package.taxonomy_ids << params[:taxonomy_id]
+    
+    taxonomy = Package.find(params[:taxonomy_id])
+    taxonomy.package_ids << params[:id]
+    
+    respond_to do |format|
+      if taxonomy.save
+        if @package.save
+          
+          format.html { redirect_to(edit_admin_package_path(@package), :notice => "Package was successfully updated!") }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @package.errors, :status => :unprocessable_entity }
+        end
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @package.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
+  def remove_taxomomy
+    @package = Package.find(params[:id])
+    
+    @package.taxonomy_ids.delete(params[:taxonomy_id])
+    
+    taxonomy = Taxonomy.find(params[:taxonomy_id])
+    taxonomy.package_ids.delete(params[:id])
+    
+    
+    respond_to do |format|
+      if taxonomy.save
+        if @package.save
+          
+          format.html { redirect_to(edit_admin_package_path(@package), :notice => "Package was successfully updated!") }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @package.errors, :status => :unprocessable_entity }
+        end
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @package.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
 
   # DELETE /clients/1
   # DELETE /clients/1.xml
